@@ -1,0 +1,72 @@
+QUARTERLY SALES REPORT - ACME CORPORATION
+==========================================
+
+SECTION A: REGIONAL PERFORMANCE
+-------------------------------
+North Region:
+  Q1: $2.3M, Q2: $2.8M, Q3: $3.1M, Q4: $2.9M
+  Product breakdown: Widget-A (45%), Widget-B (30%), Widget-C (25%)
+  Top salesperson: Alice Chen (Q1, Q3), Bob Smith (Q2, Q4)
+
+South Region:
+  Q1: $1.8M, Q2: $2.1M, Q3: $2.4M, Q4: $3.2M
+  Product breakdown: Widget-A (35%), Widget-B (45%), Widget-C (20%)
+  Top salesperson: Carol Davis (all quarters)
+
+East Region:
+  Q1: $3.5M, Q2: $3.2M, Q3: $2.9M, Q4: $3.8M
+  Product breakdown: Widget-A (50%), Widget-B (25%), Widget-C (25%)
+  Top salesperson: Dan Lee (Q1, Q2), Eve Martinez (Q3, Q4)
+
+West Region:
+  Q1: $2.0M, Q2: $2.4M, Q3: $2.7M, Q4: $2.5M
+  Product breakdown: Widget-A (40%), Widget-B (35%), Widget-C (25%)
+  Top salesperson: Frank Wilson (Q1, Q2, Q4), Grace Kim (Q3)
+
+SECTION B: PRODUCT COSTS AND MARGINS
+------------------------------------
+Widget-A:
+  Manufacturing cost: $45/unit
+  Shipping cost: $5/unit
+  Retail price: $120/unit
+  Units sold this year: 42,500
+
+Widget-B:
+  Manufacturing cost: $30/unit
+  Shipping cost: $8/unit
+  Retail price: $85/unit
+  Units sold this year: 38,200
+
+Widget-C:
+  Manufacturing cost: $60/unit
+  Shipping cost: $12/unit
+  Retail price: $180/unit
+  Units sold this year: 15,800
+
+SECTION C: EMPLOYEE COMPENSATION
+--------------------------------
+Base salaries (annual):
+  - Sales associates: $55,000
+  - Senior sales: $75,000
+  - Regional managers: $95,000
+
+Commission structure:
+  - Standard rate: 3% of sales
+  - Bonus tier (>$500K quarterly): 5% of sales
+  - Quarterly bonus for top performer: $2,500
+
+Current headcount by region:
+  North: 8 associates, 3 senior, 1 manager
+  South: 6 associates, 2 senior, 1 manager
+  East: 10 associates, 4 senior, 1 manager
+  West: 7 associates, 3 senior, 1 manager
+
+SECTION D: STRATEGIC NOTES
+--------------------------
+- Widget-C has highest margin but lowest volume
+- South region showing strongest growth trajectory
+- East region has highest total revenue but declining mid-year
+- Consider reallocating resources from North to South
+- Q4 spike in South due to new corporate client (TechCorp) signing $800K deal
+- Frank Wilson requested transfer from West to East region
+- Manufacturing costs expected to rise 8% next year due to supply chain issues

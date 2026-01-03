@@ -1,0 +1,11 @@
+COMPANY QUARTERLY REPORT
+
+Revenue: $5.2 million
+Operating Expenses: $3.1 million
+Net Profit: $2.1 million
+
+Employee Count: 45
+New Hires This Quarter: 8
+
+Customer Satisfaction Score: 4.2/5.0
+Customer Churn Rate: 3.5%
