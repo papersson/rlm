@@ -1,10 +1,10 @@
 # RLM - Recursive Language Model Framework
 
-A TypeScript implementation exploring the RLM (Recursive Language Model) inference strategy from the paper:
+A TypeScript implementation exploring the RLM (Recursive Language Model) inference strategy.
 
-> **"RLM: Recursive Language Models"**
-> Dosovitskiy et al., 2024
-> [Paper PDF](docs/references/rlm.pdf)
+> **"Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach"**
+> Jonas Geiping, Sean McLeish, Neel Jain, Tom Goldstein
+> [arXiv:2512.24601](https://arxiv.org/abs/2512.24601) • [Tweet](https://x.com/a1zhang/status/2007198916073136152)
 
 ## What is RLM?
 
@@ -95,4 +95,4 @@ src/
 
 ## Credits
 
-This is an exploratory implementation based on the RLM paper. See [docs/references/rlm.pdf](docs/references/rlm.pdf) for the original research.
+This is an exploratory implementation based on the RLM paper by Geiping et al. See the [arXiv paper](https://arxiv.org/abs/2512.24601) for the original research.
