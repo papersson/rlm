@@ -3,7 +3,8 @@
 TypeScript implementation of Recursive Language Models.
 
 **Paper:** [Recursive Language Models](https://arxiv.org/abs/2512.24601) — Zhang, Kraska, Khattab (MIT CSAIL)
-**Thread:** [@a1zhang](https://x.com/a1zhang/status/2007198916073136152)
+
+**Tweet:** [@a1zhang](https://x.com/a1zhang/status/2007198916073136152)
 
 ## Idea
 
@@ -44,3 +45,11 @@ npm run dev -- run \
 ```bash
 npm test
 ```
+
+## Notes
+
+- In RLM, context never enters the LLM's context window, it stays in an external variable
+- The LLM only sees what it explicitly `print()`s
+- A coding agent (Claude Code, etc.) could do the same: write context to file, process via scripts, avoid reading directly
+- RLM formalizes this into an architecture with a REPL protocol and sub-LM delegation
+- Open question: is the value in the architectural constraint, or could a well-prompted agent achieve the same?
