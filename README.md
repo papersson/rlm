@@ -1,98 +1,46 @@
-# RLM - Recursive Language Model Framework
+# RLM
 
-A TypeScript implementation exploring the RLM (Recursive Language Model) inference strategy.
+TypeScript implementation of Recursive Language Models.
 
-> **"Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach"**
-> Jonas Geiping, Sean McLeish, Neel Jain, Tom Goldstein
-> [arXiv:2512.24601](https://arxiv.org/abs/2512.24601) • [Tweet](https://x.com/a1zhang/status/2007198916073136152)
+**Paper:** [Recursive Language Models](https://arxiv.org/abs/2512.24601) — Zhang, Kraska, Khattab (MIT CSAIL)
+**Thread:** [@a1zhang](https://x.com/a1zhang/status/2007198916073136152)
 
-## What is RLM?
+## Idea
 
-Traditional LLMs are limited by context windows. RLM solves this by giving the LLM **programmatic access** to the context instead of pasting it into the prompt:
+Instead of stuffing a huge document into the prompt, give the LLM programmatic access to it via a Python REPL. The LLM writes code to navigate and analyze the content, and can delegate subtasks to a cheaper sub-model via `llm_query()`.
 
-```
-┌─────────────────────────────────────────┐
-│              RLM Engine                 │
-│                                         │
-│  ┌─────────┐      ┌─────────────────┐  │
-│  │ Root LLM│◄────►│   Python REPL   │  │
-│  └────┬────┘      │                 │  │
-│       │           │ context = "..." │  │
-│       ▼           │ llm_query(...)  │  │
-│  ┌─────────┐      └─────────────────┘  │
-│  │ Sub LLM │                           │
-│  └─────────┘                           │
-└─────────────────────────────────────────┘
-```
-
-The LLM writes Python code to navigate, slice, and analyze the context. It can also delegate subtasks to a cheaper sub-LLM via `llm_query()`.
-
-## Install
+## Setup
 
 ```bash
 npm install
-cp .env.example .env
-# Add your ANTHROPIC_API_KEY to .env
+echo "ANTHROPIC_API_KEY=sk-..." > .env
 ```
 
 ## Usage
 
 ```bash
-# Simple query
-npm run dev -- run \
-  -c examples/simple-sublm.txt \
-  -q "What is the net profit?" \
-  --output trace
+npm run dev -- run -c <file> -q "<query>" --output trace
+```
 
-# With sub-LLM calls
-npm run dev -- run \
-  -c examples/multi-document.txt \
-  -q "Summarize each document using llm_query()" \
-  --output trace
-
-# Large dataset (2MB CSV)
+Example:
+```bash
 npm run dev -- run \
   -c examples/airlines.csv \
-  -q "Which airport had the most weather delays in 2008?" \
+  -q "Which airport had the most weather delays?" \
   --output trace
 ```
 
-## Output Formats
+## Options
 
-- `--output summary` - Brief result (default)
-- `--output trace` - Full execution trace showing LLM calls, code executions, and sub-LM calls
-- `--output json` - Machine-readable result
-
-## Configuration
-
-| Flag | Default | Description |
-|------|---------|-------------|
-| `--root-provider` | `anthropic` | LLM provider for main model |
-| `--root-model` | `claude-opus-4-5-20251101` | Main model |
-| `--sub-provider` | `anthropic` | LLM provider for sub-queries |
-| `--sub-model` | `claude-sonnet-4-5-20250929` | Sub-query model |
-| `--max-iterations` | `50` | Max LLM call iterations |
-| `--max-sub-calls` | `100` | Max llm_query() calls |
-| `--repl-timeout` | `120000` | REPL operation timeout (ms) |
+```
+--root-model <model>     Main model (default: claude-opus-4-5-20251101)
+--sub-model <model>      Sub-query model (default: claude-sonnet-4-5-20250929)
+--max-iterations <n>     Max LLM iterations (default: 50)
+--output <format>        summary | trace | json
+```
 
 ## Tests
 
 ```bash
 npm test
 ```
-
-## Project Structure
-
-```
-src/
-├── cli/           # Command-line interface
-├── executor/      # Main RLM loop, parser, trace recorder
-├── llm/           # LLM client abstraction (Anthropic, OpenAI, etc.)
-├── prompts/       # System prompt from paper Appendix D
-├── repl/          # Python subprocess manager + IPC bridge
-└── types/         # Zod schemas, branded types, errors
-```
-
-## Credits
-
-This is an exploratory implementation based on the RLM paper by Geiping et al. See the [arXiv paper](https://arxiv.org/abs/2512.24601) for the original research.
