@@ -48,8 +48,10 @@ npm test
 
 ## Notes
 
-- In RLM, context never enters the LLM's context window, it stays in an external variable
-- The LLM only sees what it explicitly `print()`s
-- A coding agent (Claude Code, etc.) could do the same: write context to file, process via scripts, avoid reading directly
-- RLM formalizes this into an architecture with a REPL protocol and sub-LM delegation
-- Open question: is the value in the architectural constraint, or could a well-prompted agent achieve the same?
+- Context stays in an external Python variable; the LLM only sees what it explicitly prints
+- Coding agents like Claude Code can already do this: write context to a file, process via scripts, avoid reading directly
+- RLM provides a minimal, task-agnostic scaffold for this pattern
+- Main claim: zero-shot improvement on dense long-context tasks (needle-in-haystack is easy; dense documents are hard)
+- Longer-term value is probably training: RL against this scaffold, similar to how Chain-of-Thought became more powerful once trained for
+- Prime Intellect experiments show mixed results: helps tool-heavy tasks, hurts simpler ones like math
+- Open question: does this require the specific RLM architecture, or could you train the same behavior within general-purpose agents?
