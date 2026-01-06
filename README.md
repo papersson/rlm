@@ -48,10 +48,10 @@ npm test
 
 ## Notes
 
-- Context stays in an external Python variable; the LLM only sees what it explicitly prints
-- Coding agents like Claude Code can already do this: write context to a file, process via scripts, avoid reading directly
-- RLM provides a minimal, task-agnostic scaffold for this pattern
-- Main claim: zero-shot improvement on dense long-context tasks (needle-in-haystack is easy; dense documents are hard)
-- Longer-term value is probably training: RL against this scaffold, similar to how Chain-of-Thought became more powerful once trained for
-- Prime Intellect experiments show mixed results: helps tool-heavy tasks, hurts simpler ones like math
-- Open question: does this require the specific RLM architecture, or could you train the same behavior within general-purpose agents?
+- The core idea: prompts stay external to the model, accessed symbolically via code
+- This inverts the default: instead of feeding tokens to the transformer, the LLM navigates the prompt programmatically
+- Claude Code can implement this (externalize prompt to file, add recursive llm_query tool), but doesn't by default
+- RLM formalizes this into a minimal scaffold: persistent REPL + symbolic prompt access + recursive sub-calls
+- Main empirical claim: zero-shot improvement on dense long-context tasks
+- Longer-term bet: RL training against this scaffold, similar to Chain-of-Thought
+- Vision: "all LLMs should have symbolic access to their prompts"
